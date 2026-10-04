@@ -5,8 +5,8 @@
     "setup_time_minutes": 30,
     "processing_time_minutes": 60,
     "required_capability": "turning",
-    "release_time": "2026-10-13T08:00:00",
-    "delivery_date": "2026-10-13",
+    "release_time": "2026-10-05T08:00:00",
+    "delivery_date": "2026-10-05",
     "priority": "LOW"
   },
   {
@@ -15,8 +15,8 @@
     "setup_time_minutes": 60,
     "processing_time_minutes": 180,
     "required_capability": "milling",
-    "release_time": "2026-10-13T08:00:00",
-    "delivery_date": "2026-10-13",
+    "release_time": "2026-10-05T08:00:00",
+    "delivery_date": "2026-10-05",
     "priority": "HIGH"
   },
   {
@@ -25,8 +25,8 @@
     "setup_time_minutes": 30,
     "processing_time_minutes": 90,
     "required_capability": "drilling",
-    "release_time": "2026-10-13T08:00:00",
-    "delivery_date": "2026-10-14",
+    "release_time": "2026-10-05T08:00:00",
+    "delivery_date": "2026-10-06",
     "priority": "MEDIUM"
   },
   {
@@ -35,8 +35,8 @@
     "setup_time_minutes": 60,
     "processing_time_minutes": 120,
     "required_capability": "milling",
-    "release_time": "2026-10-13T12:00:00",
-    "delivery_date": "2026-10-13",
+    "release_time": "2026-10-05T12:00:00",
+    "delivery_date": "2026-10-05",
     "priority": "URGENT"
   },
   {
@@ -45,8 +45,8 @@
     "setup_time_minutes": 60,
     "processing_time_minutes": 240,
     "required_capability": "assembly",
-    "release_time": "2026-10-13T08:00:00",
-    "delivery_date": "2026-10-14",
+    "release_time": "2026-10-05T08:00:00",
+    "delivery_date": "2026-10-06",
     "priority": "HIGH"
   },
   {
@@ -55,8 +55,8 @@
     "setup_time_minutes": 60,
     "processing_time_minutes": 240,
     "required_capability": "turning",
-    "release_time": "2026-10-13T09:30:00",
-    "delivery_date": "2026-10-15",
+    "release_time": "2026-10-05T09:30:00",
+    "delivery_date": "2026-10-07",
     "priority": "MEDIUM"
   },
   {
@@ -65,8 +65,8 @@
     "setup_time_minutes": 60,
     "processing_time_minutes": 180,
     "required_capability": "grinding",
-    "release_time": "2026-10-13T10:00:00",
-    "delivery_date": "2026-10-14",
+    "release_time": "2026-10-05T10:00:00",
+    "delivery_date": "2026-10-06",
     "priority": "URGENT"
   },
   {
@@ -75,8 +75,8 @@
     "setup_time_minutes": 30,
     "processing_time_minutes": 90,
     "required_capability": "welding",
-    "release_time": "2026-10-13T08:00:00",
-    "delivery_date": "2026-10-15",
+    "release_time": "2026-10-05T08:00:00",
+    "delivery_date": "2026-10-07",
     "priority": "LOW"
   },
   {
@@ -85,8 +85,8 @@
     "setup_time_minutes": 60,
     "processing_time_minutes": 60,
     "required_capability": "turning",
-    "release_time": "2026-10-13T15:00:00",
-    "delivery_date": "2026-10-16",
+    "release_time": "2026-10-05T15:00:00",
+    "delivery_date": "2026-10-08",
     "priority": "LOW"
   },
   {
@@ -95,8 +95,8 @@
     "setup_time_minutes": 30,
     "processing_time_minutes": 90,
     "required_capability": "assembly",
-    "release_time": "2026-10-13T14:00:00",
-    "delivery_date": "2026-10-16",
+    "release_time": "2026-10-05T14:00:00",
+    "delivery_date": "2026-10-08",
     "priority": "LOW"
   }
 ]
