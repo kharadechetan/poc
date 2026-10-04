@@ -42,6 +42,7 @@ def compute_metrics(schedule_entries: list, machines: list, all_work_orders: lis
         machine_busy_minutes[entry.machine_id] += dur
 
     machine_utilization = {}
+    idle_time_per_machine = {}
     total_available_minutes = 0
     total_busy_minutes = sum(machine_busy_minutes.values())
     
@@ -61,10 +62,13 @@ def compute_metrics(schedule_entries: list, machines: list, all_work_orders: lis
         total_available_minutes += avail_mins
         
         busy = machine_busy_minutes.get(m.id, 0)
+        idle = max(0, avail_mins - busy)
         util = (busy / avail_mins * 100) if avail_mins > 0 else 0
         machine_utilization[m.id] = round(util, 2)
+        idle_time_per_machine[m.id] = idle
         
     overall_util = (total_busy_minutes / total_available_minutes * 100) if total_available_minutes > 0 else 0
+    total_idle = max(0, total_available_minutes - total_busy_minutes)
     
     weighted_completion = sum(
         settings.get_priority_weight(entry.priority) * int((entry.production_end - earliest_release).total_seconds() / 60)
@@ -96,5 +100,7 @@ def compute_metrics(schedule_entries: list, machines: list, all_work_orders: lis
         weighted_lateness=weighted_lateness,
         machine_utilization=machine_utilization,
         overall_machine_utilization=round(overall_util, 2),
+        idle_time_per_machine=idle_time_per_machine,
+        total_idle_minutes=total_idle,
         objective_value=objective
     )

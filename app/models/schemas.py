@@ -94,6 +94,8 @@ class ScheduleMetrics(FlexibleModel):
     weighted_lateness: int
     machine_utilization: Dict[str, float]
     overall_machine_utilization: float
+    idle_time_per_machine: Dict[str, int]
+    total_idle_minutes: int
     objective_value: int
 
 class ScheduleResponse(FlexibleModel):

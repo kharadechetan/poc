@@ -32,7 +32,9 @@
     ],
     "available_from": "10:00",
     "available_to": "18:00",
-    "status": "AVAILABLE"
+    "status": "AVAILABLE",
+    "unavailable_from": "2026-10-13T12:00:00",
+    "unavailable_until": "2026-10-13T13:00:00"
   },
   {
     "id": "M004",

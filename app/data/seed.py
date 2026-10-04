@@ -15,9 +15,10 @@ def seed_database():
                 for m in machines:
                     capabilities_str = ",".join(m["capabilities"])
                     cursor.execute("""
-                        INSERT INTO machines (id, name, capabilities, available_from, available_to, status)
-                        VALUES (?, ?, ?, ?, ?, ?)
-                    """, (m["id"], m["name"], capabilities_str, m["available_from"], m["available_to"], m["status"]))
+                        INSERT INTO machines (id, name, capabilities, available_from, available_to, status, unavailable_from, unavailable_until)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """, (m["id"], m["name"], capabilities_str, m["available_from"], m["available_to"], m["status"],
+                          m.get("unavailable_from"), m.get("unavailable_until")))
     
     cursor.execute("SELECT COUNT(*) FROM work_orders")
     if cursor.fetchone()[0] == 0:
