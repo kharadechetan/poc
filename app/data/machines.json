@@ -1,0 +1,48 @@
+[
+  {
+    "id": "M001",
+    "name": "Lathe A",
+    "capabilities": [
+      "turning",
+      "milling"
+    ],
+    "available_from": "08:00",
+    "available_to": "17:00",
+    "status": "AVAILABLE"
+  },
+  {
+    "id": "M002",
+    "name": "CNC B",
+    "capabilities": [
+      "milling",
+      "drilling",
+      "turning"
+    ],
+    "available_from": "08:00",
+    "available_to": "17:00",
+    "status": "AVAILABLE"
+  },
+  {
+    "id": "M003",
+    "name": "Multi C",
+    "capabilities": [
+      "grinding",
+      "welding",
+      "milling"
+    ],
+    "available_from": "10:00",
+    "available_to": "18:00",
+    "status": "AVAILABLE"
+  },
+  {
+    "id": "M004",
+    "name": "Assembly D",
+    "capabilities": [
+      "assembly",
+      "drilling"
+    ],
+    "available_from": "08:00",
+    "available_to": "16:00",
+    "status": "AVAILABLE"
+  }
+]

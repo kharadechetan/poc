@@ -1,0 +1,102 @@
+[
+  {
+    "id": "WO-001",
+    "quantity": 100,
+    "setup_time_minutes": 30,
+    "processing_time_minutes": 60,
+    "required_capability": "turning",
+    "release_time": "2026-10-13T08:00:00",
+    "delivery_date": "2026-10-13",
+    "priority": "LOW"
+  },
+  {
+    "id": "WO-002",
+    "quantity": 50,
+    "setup_time_minutes": 60,
+    "processing_time_minutes": 180,
+    "required_capability": "milling",
+    "release_time": "2026-10-13T08:00:00",
+    "delivery_date": "2026-10-13",
+    "priority": "HIGH"
+  },
+  {
+    "id": "WO-003",
+    "quantity": 200,
+    "setup_time_minutes": 30,
+    "processing_time_minutes": 90,
+    "required_capability": "drilling",
+    "release_time": "2026-10-13T08:00:00",
+    "delivery_date": "2026-10-14",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "WO-004",
+    "quantity": 20,
+    "setup_time_minutes": 60,
+    "processing_time_minutes": 120,
+    "required_capability": "milling",
+    "release_time": "2026-10-13T12:00:00",
+    "delivery_date": "2026-10-13",
+    "priority": "URGENT"
+  },
+  {
+    "id": "WO-005",
+    "quantity": 1,
+    "setup_time_minutes": 60,
+    "processing_time_minutes": 240,
+    "required_capability": "assembly",
+    "release_time": "2026-10-13T08:00:00",
+    "delivery_date": "2026-10-14",
+    "priority": "HIGH"
+  },
+  {
+    "id": "WO-006",
+    "quantity": 300,
+    "setup_time_minutes": 60,
+    "processing_time_minutes": 240,
+    "required_capability": "turning",
+    "release_time": "2026-10-13T09:30:00",
+    "delivery_date": "2026-10-15",
+    "priority": "MEDIUM"
+  },
+  {
+    "id": "WO-007",
+    "quantity": 15,
+    "setup_time_minutes": 60,
+    "processing_time_minutes": 180,
+    "required_capability": "grinding",
+    "release_time": "2026-10-13T10:00:00",
+    "delivery_date": "2026-10-14",
+    "priority": "URGENT"
+  },
+  {
+    "id": "WO-008",
+    "quantity": 50,
+    "setup_time_minutes": 30,
+    "processing_time_minutes": 90,
+    "required_capability": "welding",
+    "release_time": "2026-10-13T08:00:00",
+    "delivery_date": "2026-10-15",
+    "priority": "LOW"
+  },
+  {
+    "id": "WO-009",
+    "quantity": 150,
+    "setup_time_minutes": 60,
+    "processing_time_minutes": 60,
+    "required_capability": "turning",
+    "release_time": "2026-10-13T15:00:00",
+    "delivery_date": "2026-10-16",
+    "priority": "LOW"
+  },
+  {
+    "id": "WO-010",
+    "quantity": 10,
+    "setup_time_minutes": 30,
+    "processing_time_minutes": 90,
+    "required_capability": "assembly",
+    "release_time": "2026-10-13T14:00:00",
+    "delivery_date": "2026-10-16",
+    "priority": "LOW"
+  }
+]
