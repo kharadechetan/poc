@@ -62,7 +62,7 @@ def run_demo():
         print(f"WARNING: mid_point {mid_point} is in the past relative to sim start {sim_start}")
         advance_mins = 60
     res = httpx.post(f"{BASE_URL}/simulation/advance", json={"minutes": advance_mins})
-    print(f"Advanced {advance_mins} minutes → {res.json()['current_time']}")
+    print(f"Advanced {advance_mins} minutes -> {res.json()['current_time']}")
 
     state = httpx.get(f"{BASE_URL}/simulation/state").json()
     print(f"Running jobs: {[k + '=' + (v or '-') for k, v in state['running_orders_per_machine'].items() if v]}")
