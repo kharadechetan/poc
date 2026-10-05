@@ -1,6 +1,6 @@
 # AI-Assisted Dynamic Production Scheduler - API Walkthrough
 
-This document serves as a comprehensive guide to the 20 available API endpoints in the system. It explains what each endpoint does, the input it requires, and what it returns.
+This document serves as a comprehensive guide to the **21** available API endpoints in the system. It explains what each endpoint does, the input it requires, and what it returns.
 
 You can interact with all these endpoints directly at **http://127.0.0.1:8000/docs** (Swagger UI).
 
@@ -70,9 +70,9 @@ If you are demonstrating this Proof of Concept, follow these exact endpoints in 
 * **Input:** None.
 * **Returns:** A list of work order objects.
 
-### `GET /work-orders/{order_id}`
+### `GET /work-orders/{work_order_id}`
 * **What it does:** Fetches the specific details of a single work order.
-* **Input:** Path parameter `order_id` (e.g., `WO-001`).
+* **Input:** Path parameter `work_order_id` (e.g., `WO-001`).
 * **Returns:** A single work order object.
 
 ### `POST /work-orders`
@@ -107,6 +107,11 @@ If you are demonstrating this Proof of Concept, follow these exact endpoints in 
 * **Input:** None.
 * **Returns:** The active schedule and its metrics.
 
+### `GET /schedule/machine-work-orders`
+* **What it does:** Organizes the active schedule by machine, providing a quick lookup of which work orders are assigned to which machines in sequential order.
+* **Input:** None.
+* **Returns:** A dictionary mapping each `machine_id` to its ordered list of `work_order_id`s.
+
 ### `GET /schedule/metrics`
 * **What it does:** Evaluates the active schedule and returns key performance indicators.
 * **Input:** None.
@@ -116,6 +121,16 @@ If you are demonstrating this Proof of Concept, follow these exact endpoints in 
 * **What it does:** Retrieves all past versions of schedules and the log of all rescheduling events.
 * **Input:** None.
 * **Returns:** A history list of schedule versions and a history of rescheduling/breakdown events.
+
+### `POST /schedule/reschedule`
+* **What it does:** The AI Rescue! Freezes completed/unaffected jobs, removes the broken machine from the pool, and mathematically recalculates the best recovery paths for the affected orders.
+* **Input:** None.
+* **Returns:** The brand new revised schedule, updated metrics, and **Plain English reasons** explaining exactly how and why the AI rescued each job (e.g. "Moved from M002 to M004").
+
+### `POST /schedule/insert-dynamic/{work_order_id}`
+* **What it does:** Dynamic Order Insertion using the **Least Work Remaining** heuristic. Safely injects a newly created work order into the running factory without breaking existing jobs. It automatically finds the compatible machine with the shortest queue and assigns it.
+* **Input:** Path parameter `work_order_id` (e.g., `WO-999`).
+* **Returns:** A success message, the newly created schedule entry, and the heuristic rationale for why it picked that specific machine.
 
 ---
 
@@ -142,10 +157,6 @@ If you are demonstrating this Proof of Concept, follow these exact endpoints in 
   ```
 * **Returns:** Success message and the updated `current_time`.
 
----
-
-## 5. Disruption & Dynamic Rescheduling
-
 ### `POST /simulation/breakdown`
 * **What it does:** Simulates a catastrophic machine failure at a specific point in time, interrupting any job currently running on it.
 * **Input:**
@@ -167,13 +178,3 @@ If you are demonstrating this Proof of Concept, follow these exact endpoints in 
 * **What it does:** The AI analyzes all affected jobs and scans the factory for alternative healthy machines, outputting exact reasons for acceptance or rejection.
 * **Input:** None.
 * **Returns:** JSON explaining feasible and infeasible alternative machines for every affected order.
-
-### `POST /schedule/reschedule`
-* **What it does:** The AI Rescue! Freezes completed/unaffected jobs, removes the broken machine from the pool, and mathematically recalculates the best recovery paths for the affected orders.
-* **Input:** None.
-* **Returns:** The brand new revised schedule, updated metrics, and **Plain English reasons** explaining exactly how and why the AI rescued each job (e.g. "Moved from M002 to M004").
-
-### `POST /schedule/insert-dynamic/{work_order_id}`
-* **What it does:** Dynamic Order Insertion using the **Least Work Remaining** heuristic. Safely injects a newly created work order into the running factory without breaking existing jobs. It automatically finds the compatible machine with the shortest queue and assigns it.
-* **Input:** Path parameter `work_order_id` (e.g., `WO-999`).
-* **Returns:** A success message, the newly created schedule entry, and the heuristic rationale for why it picked that specific machine.

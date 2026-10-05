@@ -11,6 +11,61 @@ This is a FastAPI backend for an AI-Assisted Dynamic Production Scheduler ERP pr
 - **Pydantic**: Data validation and modeling
 - **pytest**: Test suite
 
+---
+
+## 🚀 Getting Started (For Reviewers & Developers)
+
+Follow these steps to set up, run, and test the project on your local machine.
+
+### Prerequisites
+- Python 3.11 or newer installed.
+- Git (optional, for cloning).
+
+### 1. Setup Virtual Environment & Install Dependencies
+First, create a virtual environment to isolate project dependencies.
+
+**For Windows (PowerShell):**
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+**For macOS / Linux:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 2. Run the API Server
+Start the FastAPI application using Uvicorn with auto-reload enabled:
+```bash
+uvicorn app.main:app --reload
+```
+Once running, the interactive API documentation will be available at:
+👉 **http://127.0.0.1:8000/docs**
+
+### 3. Run the Automated End-to-End Demo
+To see the system in action (simulating scheduling, advancing time, handling machine breakdown, and rescheduling), open a second terminal (with the virtual environment activated) and run:
+```bash
+python scripts\demo.py   # Windows
+# or
+python scripts/demo.py   # macOS/Linux
+```
+
+### 4. Run the Test Suite
+To verify the integrity of the application, run the automated tests using `pytest`:
+```bash
+pytest
+```
+To run tests with a cleaner, simplified output:
+```bash
+pytest -q
+```
+
+---
+
 ## Features
 - **Deterministic Scheduling**: Generates the exact same schedule given identical state.
 - **Multi-Objective Optimization**: Minimizes lateness, late orders, makespan, and completion times in a lexicographic-style weighted sum.
@@ -60,26 +115,6 @@ production_scheduler/
 └── README.md
 ```
 
-## Running the Application
-1. **Activate Environment & Install Deps**:
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\Activate.ps1
-   pip install -r requirements.txt
-   ```
-2. **Start the Server**:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
-3. **Run Demo Script**:
-   ```bash
-   python scripts\demo.py
-   ```
-4. **Run Tests**:
-   ```bash
-   pytest -q
-   ```
-
 ## Scheduling / Optimization Approach
 
 ### Why Constraint Programming (CP-SAT)?
@@ -126,4 +161,3 @@ This "fix-and-re-optimize" approach is significantly faster and less disruptive 
 7. **Simulation Time**: The current simulation time is tracked strictly within the `simulation_state` table.
 8. **Machine Maintenance**: M003 has a pre-seeded 1-hour planned maintenance window (12:00–13:00 on Oct 13) to demonstrate unavailable-period handling.
 9. **Dependencies**: Only built-ins, `fastapi`, `uvicorn`, `pydantic`, `pytest`, `httpx`, and `ortools` were used. No cloud services or ML.
-

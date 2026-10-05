@@ -28,6 +28,27 @@ def get_current_schedule(db: sqlite3.Connection = Depends(get_db_session)):
     
     return ScheduleResponse(schedule=entries, metrics=metrics)
 
+@router.get("/machine-work-orders")
+def get_machine_work_orders(db: sqlite3.Connection = Depends(get_db_session)):
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM schedules ORDER BY version DESC LIMIT 1")
+    s_row = cursor.fetchone()
+    if not s_row:
+        raise NotFoundError("No schedule exists")
+        
+    cursor.execute("SELECT machine_id, work_order_id FROM schedule_entries WHERE schedule_version = ? ORDER BY setup_start ASC", (s_row["version"],))
+    entries = cursor.fetchall()
+    
+    result = {}
+    for row in entries:
+        m_id = row["machine_id"]
+        w_id = row["work_order_id"]
+        if m_id not in result:
+            result[m_id] = {"orders": []}
+        result[m_id]["orders"].append(w_id)
+        
+    return result
+
 @router.get("/metrics", response_model=ScheduleMetrics)
 def get_schedule_metrics(db: sqlite3.Connection = Depends(get_db_session)):
     cursor = db.cursor()
